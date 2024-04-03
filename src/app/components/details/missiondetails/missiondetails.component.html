@@ -1,0 +1,16 @@
+<!-- <div *ngIf="launch">
+    <h2>{{ launch.mission_name }} Details</h2>
+    <p>Launch Year: {{ launch.launch_year }}</p>
+
+    <p>{{ launch.details }}</p>
+</div> -->
+<mat-card *ngIf="launch" class="details-card">
+    <mat-card-header>
+      <mat-card-title>{{ launch.mission_name }} Details</mat-card-title>
+      <mat-card-subtitle>Launch Year: {{ launch.launch_year }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ launch.details }}</p>
+    </mat-card-content>
+  </mat-card>
+  

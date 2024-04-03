@@ -1,2 +1,23 @@
-<input type="number" [(ngModel)]="filterYear" placeholder="Enter launch year">
-<button (click)="applyFilter()">Filter</button>
+<!-- <input type="number" [(ngModel)]="filterYear" placeholder="Enter launch year">
+<button (click)="applyFilter()">Filter</button> -->
+<!-- <mat-form-field appearance="outline" color="accent">
+    <mat-label>Enter launch year</mat-label>
+    <input matInput [(ngModel)]="filterYear" type="number">
+    <button mat-icon-button matSuffix (click)="applyFilter()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field> -->
+  <!-- Component's HTML template -->
+<div class="search-container">
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Enter launch year</mat-label>
+      <input matInput [(ngModel)]="filterYear" type="number">
+      <button mat-icon-button matSuffix (click)="applyFilter()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+</div>
+  
+  
+  
+  

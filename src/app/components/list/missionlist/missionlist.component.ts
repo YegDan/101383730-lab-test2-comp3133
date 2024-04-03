@@ -4,15 +4,27 @@ import { SpacexDataService } from '../../../services/spacex-data.service';
 import { SpacexLaunch } from '../../../spacex-launch';
 import { CommonModule } from '@angular/common';
 import { MissionfilterComponent } from '../../filter/missionfilter/missionfilter.component';
+import { MissiondetailsComponent } from '../../details/missiondetails/missiondetails.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 @Component({
   selector: 'app-missionlist',
   standalone: true,
-  imports: [CommonModule, MissionfilterComponent],
+  imports: [CommonModule,
+     MissionfilterComponent,
+     MissiondetailsComponent,
+     MatCardModule,
+     MatGridListModule],
   templateUrl: './missionlist.component.html',
   styleUrl: './missionlist.component.css'
 })
 export class MissionlistComponent implements OnInit{
   launches: SpacexLaunch[] = [];
+  selectedLaunch: SpacexLaunch | null = null;
+
+  
+
   constructor(private spacexDataService: SpacexDataService) {}
 
   ngOnInit(){
@@ -37,6 +49,13 @@ export class MissionlistComponent implements OnInit{
       });
     }
 
+    onLaunchSelected(launch: SpacexLaunch): void {
+      this.selectedLaunch = launch;
+    }
+
+    clearSelection(): void {
+      this.selectedLaunch = null; 
+    }
 
     onFilterApplied(year: number | null): void {
       this.fetchLaunches(year); 

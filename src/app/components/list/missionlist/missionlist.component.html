@@ -1,6 +1,39 @@
-<app-missionfilter (filterApplied)="onFilterApplied($event)"></app-missionfilter>
-<div *ngFor="let launch of launches">
-    <h2>{{ launch.mission_name }} ({{ launch.launch_year }})</h2>
-    <p>{{ launch.details }}</p>
-    <img [src]="launch.links.mission_patch_small" alt="Mission Patch">
+
+
+<!-- <div *ngIf="!selectedLaunch; else showDetails">
+    <app-missionfilter (filterApplied)="fetchLaunches($event)"></app-missionfilter>
+    <div *ngFor="let launch of launches" (click)="onLaunchSelected(launch)">
+        <h2>{{ launch.mission_name }}</h2>
+        <p>Launch Year  {{ launch.launch_year }}</p>
+        <p>Successful Launch:   {{launch.launch_success}}</p>
+        <img [src]="launch.links.mission_patch_small" alt="Mission Patch">
+    </div>
 </div>
+<ng-template #showDetails>
+    <app-missiondetails [launch]="selectedLaunch"></app-missiondetails>
+    <button (click)="clearSelection()">Back to List</button>
+</ng-template> -->
+
+<app-missionfilter (filterApplied)="onFilterApplied($event)"></app-missionfilter>
+<mat-grid-list cols="4" rowHeight="350px" *ngIf="!selectedLaunch; else showDetails">
+  <mat-grid-tile *ngFor="let launch of launches" (click)="onLaunchSelected(launch)">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ launch.mission_name }}</mat-card-title>
+        <mat-card-subtitle>{{ launch.launch_year }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="launch.links.mission_patch_small" alt="Mission Patch" style="max-height: 200px;">
+      <!-- <mat-card-content>
+        <p>{{ launch.details }}</p>
+      </mat-card-content> -->
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #showDetails>
+  <app-missiondetails [launch]="selectedLaunch"></app-missiondetails>
+  <button mat-raised-button color="primary" (click)="clearSelection()">Back to List</button>
+</ng-template>
+
+  
+  

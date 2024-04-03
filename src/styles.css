@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css'; 
+
+body {
+  background-color: #eceff1; 
+  font-family: 'Roboto', sans-serif; 
+}
+
+mat-card {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); 
+}
+
+
+button.mat-icon-button {
+  color: #fff; 
+}
+
+
+mat-icon {
+  color: inherit; /* Ensure icons take on the color of their parent for consistency */
+}
+
+mat-form-field {
+    width: 100%; 
+  }

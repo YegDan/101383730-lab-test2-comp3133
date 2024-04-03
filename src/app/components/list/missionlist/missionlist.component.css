@@ -1,0 +1,29 @@
+mat-grid-tile {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  mat-card {
+    margin: 8px;
+    height: auto;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; 
+  }
+  
+  mat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+  }
+  
+  mat-card img {
+    width: 100%; 
+    height: auto; 
+    max-height: 200px;
+    object-fit: contain;
+  }
+  
+  mat-card-content {
+    font-size: 14px;
+    color: #555; 
+  }
+  
+  
