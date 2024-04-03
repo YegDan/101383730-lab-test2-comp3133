@@ -1,0 +1,6 @@
+<app-missionfilter (filterApplied)="onFilterApplied($event)"></app-missionfilter>
+<div *ngFor="let launch of launches">
+    <h2>{{ launch.mission_name }} ({{ launch.launch_year }})</h2>
+    <p>{{ launch.details }}</p>
+    <img [src]="launch.links.mission_patch_small" alt="Mission Patch">
+</div>
